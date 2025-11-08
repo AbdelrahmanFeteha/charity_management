@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_charity_donor,charity.donor,model_charity_donor,,1,1,1,1
+access_charity_donation,charity.donation,model_charity_donation,,1,1,1,1
+access_charity_request,charity.request,model_charity_request,,1,1,1,1
+access_charity_distribution,charity.distribution,model_charity_distribution,,1,1,1,1
+access_charity_project,charity.project,model_charity_project,,1,1,1,1

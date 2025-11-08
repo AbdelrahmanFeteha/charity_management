@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_charity_distribution_list" model="ir.ui.view">
+        <field name="name">charity.distribution.list</field>
+        <field name="model">charity.distribution</field>
+        <field name="arch" type="xml">
+            <list string="Distributions">
+                <field name="date"/>
+                <field name="project_id"/>
+                <field name="request_id"/>
+                <field name="donation_id"/>
+                <field name="amount"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_charity_distribution_form" model="ir.ui.view">
+        <field name="name">charity.distribution.form</field>
+        <field name="model">charity.distribution</field>
+        <field name="arch" type="xml">
+            <form string="Distribution">
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                        <field name="project_id"/>
+                        <field name="request_id"/>
+                        <field name="donation_id"/>
+                        <field name="amount"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- <record id="view_charity_distribution_search" model="ir.ui.view">
+        <field name="name">charity.distribution.search</field>
+        <field name="model">charity.distribution</field>
+        <field name="arch" type="xml">
+            <search string="Search Distributions">
+                <field name="project_id"/>
+                <field name="request_id"/>
+                <field name="donation_id"/>
+                <group expand="0" string="Group By">
+                    <filter string="Project" context="{'group_by':'project_id'}"/>
+                    <filter string="Request" context="{'group_by':'request_id'}"/>
+                    <filter string="Donation" context="{'group_by':'donation_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record> -->
+
+    <record id="action_charity_distribution" model="ir.actions.act_window">
+        <field name="name">Distributions</field>
+        <field name="res_model">charity.distribution</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>
