@@ -24,21 +24,18 @@
     <!-- Projects (use Selection KEYS, not labels) -->
     <record id="project_food_relief" model="charity.project">
         <field name="name">Food Relief Campaign</field>
-        <field name="category">food</field>
         <field name="description">Provide food packages to struggling families.</field>
         <field name="start_date">2025-01-01</field>
         <field name="end_date">2025-12-31</field>
     </record>
     <record id="project_school_supplies" model="charity.project">
         <field name="name">School Supplies for All</field>
-        <field name="category">education</field>
         <field name="description">Uniforms and books for children in need.</field>
         <field name="start_date">2025-02-01</field>
         <field name="end_date">2025-11-30</field>
     </record>
     <record id="project_healthcare" model="charity.project">
         <field name="name">Community Healthcare Support</field>
-        <field name="category">medical</field>
         <field name="description">Basic healthcare in rural areas.</field>
         <field name="start_date">2025-03-01</field>
         <field name="end_date">2025-10-01</field>
@@ -48,7 +45,7 @@
     <record id="request_fatima" model="charity.request">
         <field name="requester_name">Fatima Ali</field>
         <field name="location">Sharjah</field>
-        <field name="category">food</field>
+        <field name="category">medical</field>
         <field name="description">Food assistance for family.</field>
         <field name="amount_requested">500.0</field>
         <field name="status">approved</field>
@@ -57,7 +54,7 @@
     <record id="request_samir" model="charity.request">
         <field name="requester_name">Samir Hussein</field>
         <field name="location">Dubai</field>
-        <field name="category">education</field>
+        <field name="category">medical</field>
         <field name="description">Help with school fees and materials.</field>
         <field name="amount_requested">800.0</field>
         <field name="status">approved</field>
