@@ -82,7 +82,21 @@
     <record id="action_charity_project" model="ir.actions.act_window">
         <field name="name">Projects / Campaigns</field>
         <field name="res_model">charity.project</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,form,graph</field>
     </record>
+
+    <record id="view_charity_project_graph" model="ir.ui.view">
+    <field name="name">charity.project.graph</field>
+    <field name="model">charity.project</field>
+    <field name="arch" type="xml">
+        <graph string="Project Funding Overview" type="bar">
+            <field name="name" type="row"/>
+            <field name="total_requested" type="measure"/>
+            <field name="total_donations" type="measure"/>
+            <field name="total_distributed" type="measure"/>
+        </graph>
+    </field>
+</record>
+
 
 </odoo>
