@@ -7,7 +7,13 @@ class CharityProject(models.Model):
     _order = "create_date desc"
 
     name = fields.Char(required=True)
-    category = fields.Char()
+    category = fields.Selection([
+    ("food", "Food"),
+    ("shelter", "Shelter"),
+    ("education", "Education"),
+    ("medical", "Medical"),
+    ("other", "Other"),
+], string="Category")
     description = fields.Text()
     start_date = fields.Date()
     end_date = fields.Date()
@@ -26,7 +32,7 @@ class CharityProject(models.Model):
     @api.depends(
         "request_ids.amount_requested",
         "donation_ids.amount", "donation_ids.status",
-        "distribution_ids.amount"
+        "distribution_ids.amount",
     )
     def _compute_totals(self):
         for proj in self:

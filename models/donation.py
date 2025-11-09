@@ -7,10 +7,12 @@ class CharityDonation(models.Model):
     _description = "Donation (Incoming)"
     _order = "create_date desc"
 
+    name = fields.Char(compute="_compute_name", store=True)
     donor_id = fields.Many2one("charity.donor", string="Donor", required=True)
     amount = fields.Float(string="Donation Amount", required=True)
     currency = fields.Char(string="Currency", default="AED")
     date = fields.Date(string="Donation Date", default=fields.Date.context_today)
+
     status = fields.Selection([
         ("pending", "Pending"),
         ("completed", "Completed"),
@@ -23,6 +25,19 @@ class CharityDonation(models.Model):
 
     project_id = fields.Many2one("charity.project", string="Project / Campaign")
     distribution_ids = fields.One2many("charity.distribution", "donation_id", string="Distributions")
+
+    @api.depends('donor_id', 'date', 'amount', 'status')
+    def _compute_name(self):
+        for rec in self:
+            donor = rec.donor_id.public_name if rec.donor_id else _("Donor")
+            parts = [donor]
+            if rec.date:
+                parts.append(str(rec.date))
+            if rec.amount:
+                parts.append(f"{rec.amount:.2f} {rec.currency or ''}".strip())
+            if rec.status:
+                parts.append(dict(self._fields['status'].selection).get(rec.status, rec.status))
+            rec.name = " | ".join(parts)
 
     @api.constrains("amount")
     def _check_amount_positive(self):

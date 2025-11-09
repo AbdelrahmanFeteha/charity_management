@@ -1,6 +1,11 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_charity_donor,charity.donor,model_charity_donor,,1,1,1,1
-access_charity_donation,charity.donation,model_charity_donation,,1,1,1,1
-access_charity_request,charity.request,model_charity_request,,1,1,1,1
-access_charity_distribution,charity.distribution,model_charity_distribution,,1,1,1,1
-access_charity_project,charity.project,model_charity_project,,1,1,1,1
+access_charity_donation_user,charity.donation user,model_charity_donation,base.group_user,1,1,1,0
+access_charity_donation_admin,charity.donation admin,model_charity_donation,base.group_system,1,1,1,1
+access_charity_distribution_user,charity.distribution user,model_charity_distribution,base.group_user,1,1,1,0
+access_charity_distribution_admin,charity.distribution admin,model_charity_distribution,base.group_system,1,1,1,1
+access_charity_donor_user,charity.donor user,model_charity_donor,base.group_user,1,1,1,0
+access_charity_donor_admin,charity.donor admin,model_charity_donor,base.group_system,1,1,1,1
+access_charity_project_user,charity.project user,model_charity_project,base.group_user,1,1,1,0
+access_charity_project_admin,charity.project admin,model_charity_project,base.group_system,1,1,1,1
+access_charity_request_user,charity.request user,model_charity_request,base.group_user,1,1,1,0
+access_charity_request_admin,charity.request admin,model_charity_request,base.group_system,1,1,1,1

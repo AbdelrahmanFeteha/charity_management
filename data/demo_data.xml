@@ -1,52 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<odoo noupdate="1">
-
+<odoo noupdate="0">
     <!-- Donors -->
     <record id="donor_ahmad" model="charity.donor">
         <field name="name">Ahmad Elshafie</field>
-        <field name="is_company">False</field>
-        <field name="hide_name">False</field>
+        <field name="is_company">0</field>
+        <field name="hide_name">0</field>
     </record>
     <record id="donor_claire" model="charity.donor">
         <field name="name">Claire Voyant</field>
-        <field name="is_company">False</field>
-        <field name="hide_name">True</field>
+        <field name="is_company">0</field>
+        <field name="hide_name">1</field>
     </record>
     <record id="donor_tony" model="charity.donor">
         <field name="name">Tony Stark</field>
-        <field name="is_company">True</field>
+        <field name="is_company">1</field>
         <field name="organization">Stark Industries</field>
     </record>
     <record id="donor_shangchi" model="charity.donor">
         <field name="name">Shang-Chi</field>
-        <field name="is_company">False</field>
-        <field name="hide_name">False</field>
+        <field name="is_company">0</field>
+        <field name="hide_name">0</field>
     </record>
 
-    <!-- Projects -->
+    <!-- Projects (use Selection KEYS, not labels) -->
     <record id="project_food_relief" model="charity.project">
         <field name="name">Food Relief Campaign</field>
-        <field name="category">Food Aid</field>
+        <field name="category">food</field>
         <field name="description">Provide food packages to struggling families.</field>
         <field name="start_date">2025-01-01</field>
         <field name="end_date">2025-12-31</field>
     </record>
     <record id="project_school_supplies" model="charity.project">
         <field name="name">School Supplies for All</field>
-        <field name="category">Education</field>
+        <field name="category">education</field>
         <field name="description">Uniforms and books for children in need.</field>
         <field name="start_date">2025-02-01</field>
         <field name="end_date">2025-11-30</field>
     </record>
     <record id="project_healthcare" model="charity.project">
         <field name="name">Community Healthcare Support</field>
-        <field name="category">Health</field>
+        <field name="category">medical</field>
         <field name="description">Basic healthcare in rural areas.</field>
         <field name="start_date">2025-03-01</field>
         <field name="end_date">2025-10-01</field>
     </record>
 
-    <!-- Requests -->
+    <!-- Requests (already using keys like food/education/medical) -->
     <record id="request_fatima" model="charity.request">
         <field name="requester_name">Fatima Ali</field>
         <field name="location">Sharjah</field>
@@ -133,5 +131,4 @@
         <field name="amount">300.0</field>
         <field name="date">2025-06-15</field>
     </record>
-
 </odoo>
