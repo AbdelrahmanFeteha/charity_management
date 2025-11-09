@@ -7,7 +7,7 @@
     'author': 'Hackathon Team',
     'license': 'LGPL-3',
     'website': 'https://example.com',
-    'depends': [],                    
+    "depends": [],
     'data': [
     'security/ir.model.access.csv',
     'views/project_views.xml',
@@ -15,6 +15,7 @@
     'views/donation_views.xml',
     'views/request_views.xml',
     'views/distribution_views.xml',
+    'views/crisis_views.xml',
     'views/menu.xml',
     'data/demo_data.xml',
     ],

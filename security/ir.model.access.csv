@@ -9,3 +9,4 @@ access_charity_project_user,charity.project user,model_charity_project,base.grou
 access_charity_project_admin,charity.project admin,model_charity_project,base.group_system,1,1,1,1
 access_charity_request_user,charity.request user,model_charity_request,base.group_user,1,1,1,0
 access_charity_request_admin,charity.request admin,model_charity_request,base.group_system,1,1,1,1
+access_charity_crisis,charity.crisis,model_charity_crisis,,1,1,1,1

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+
     <menuitem id="menu_charity_dashboard_root" name="Charity Dashboard" sequence="10"/>
 
     <menuitem id="menu_charity_projects" name="Projects / Campaigns"
@@ -16,4 +17,9 @@
 
     <menuitem id="menu_charity_distributions" name="Distributions"
               parent="menu_charity_dashboard_root" action="action_charity_distribution" sequence="5"/>
+
+    <!-- ✅ Add new tab for Crises -->
+    <menuitem id="menu_charity_crises" name="Crises"
+              parent="menu_charity_dashboard_root" action="action_charity_crisis" sequence="6"/>
+
 </odoo>
