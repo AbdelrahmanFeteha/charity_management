@@ -1,0 +1,134 @@
+<odoo noupdate="0">
+    <!-- Donors -->
+    <record id="donor_ahmad" model="charity.donor">
+        <field name="name">Ahmad Elshafie</field>
+        <field name="is_company">0</field>
+        <field name="hide_name">0</field>
+    </record>
+    <record id="donor_claire" model="charity.donor">
+        <field name="name">Claire Voyant</field>
+        <field name="is_company">0</field>
+        <field name="hide_name">1</field>
+    </record>
+    <record id="donor_tony" model="charity.donor">
+        <field name="name">Tony Stark</field>
+        <field name="is_company">1</field>
+        <field name="organization">Stark Industries</field>
+    </record>
+    <record id="donor_shangchi" model="charity.donor">
+        <field name="name">Shang-Chi</field>
+        <field name="is_company">0</field>
+        <field name="hide_name">0</field>
+    </record>
+
+    <!-- Projects (use Selection KEYS, not labels) -->
+    <record id="project_food_relief" model="charity.project">
+        <field name="name">Food Relief Campaign</field>
+        <field name="category">food</field>
+        <field name="description">Provide food packages to struggling families.</field>
+        <field name="start_date">2025-01-01</field>
+        <field name="end_date">2025-12-31</field>
+    </record>
+    <record id="project_school_supplies" model="charity.project">
+        <field name="name">School Supplies for All</field>
+        <field name="category">education</field>
+        <field name="description">Uniforms and books for children in need.</field>
+        <field name="start_date">2025-02-01</field>
+        <field name="end_date">2025-11-30</field>
+    </record>
+    <record id="project_healthcare" model="charity.project">
+        <field name="name">Community Healthcare Support</field>
+        <field name="category">medical</field>
+        <field name="description">Basic healthcare in rural areas.</field>
+        <field name="start_date">2025-03-01</field>
+        <field name="end_date">2025-10-01</field>
+    </record>
+
+    <!-- Requests (already using keys like food/education/medical) -->
+    <record id="request_fatima" model="charity.request">
+        <field name="requester_name">Fatima Ali</field>
+        <field name="location">Sharjah</field>
+        <field name="category">food</field>
+        <field name="description">Food assistance for family.</field>
+        <field name="amount_requested">500.0</field>
+        <field name="status">approved</field>
+        <field name="project_id" ref="project_food_relief"/>
+    </record>
+    <record id="request_samir" model="charity.request">
+        <field name="requester_name">Samir Hussein</field>
+        <field name="location">Dubai</field>
+        <field name="category">education</field>
+        <field name="description">Help with school fees and materials.</field>
+        <field name="amount_requested">800.0</field>
+        <field name="status">approved</field>
+        <field name="project_id" ref="project_school_supplies"/>
+    </record>
+    <record id="request_mariam" model="charity.request">
+        <field name="requester_name">Mariam Youssef</field>
+        <field name="location">Ajman</field>
+        <field name="category">medical</field>
+        <field name="description">Medical support for child’s surgery.</field>
+        <field name="amount_requested">1500.0</field>
+        <field name="status">pending</field>
+        <field name="project_id" ref="project_healthcare"/>
+    </record>
+
+    <!-- Donations -->
+    <record id="donation_ahmad_food" model="charity.donation">
+        <field name="donor_id" ref="donor_ahmad"/>
+        <field name="amount">1000.0</field>
+        <field name="currency">AED</field>
+        <field name="date">2025-05-10</field>
+        <field name="status">completed</field>
+        <field name="project_id" ref="project_food_relief"/>
+        <field name="note">Supporting local families with food supplies.</field>
+    </record>
+    <record id="donation_tony_school" model="charity.donation">
+        <field name="donor_id" ref="donor_tony"/>
+        <field name="amount">5000.0</field>
+        <field name="currency">AED</field>
+        <field name="date">2025-06-01</field>
+        <field name="status">completed</field>
+        <field name="project_id" ref="project_school_supplies"/>
+        <field name="note">Funding uniforms and books.</field>
+    </record>
+    <record id="donation_claire_health" model="charity.donation">
+        <field name="donor_id" ref="donor_claire"/>
+        <field name="amount">2000.0</field>
+        <field name="currency">AED</field>
+        <field name="date">2025-04-20</field>
+        <field name="status">pending</field>
+        <field name="project_id" ref="project_healthcare"/>
+    </record>
+    <record id="donation_shangchi_food" model="charity.donation">
+        <field name="donor_id" ref="donor_shangchi"/>
+        <field name="amount">750.0</field>
+        <field name="currency">AED</field>
+        <field name="date">2025-07-14</field>
+        <field name="status">completed</field>
+        <field name="project_id" ref="project_food_relief"/>
+    </record>
+
+    <!-- Distributions -->
+    <record id="distribution_1" model="charity.distribution">
+        <field name="project_id" ref="project_food_relief"/>
+        <field name="request_id" ref="request_fatima"/>
+        <field name="donation_id" ref="donation_shangchi_food"/>
+        <field name="amount">400.0</field>
+        <field name="date">2025-07-15</field>
+    </record>
+    <record id="distribution_2" model="charity.distribution">
+        <field name="project_id" ref="project_school_supplies"/>
+        <field name="request_id" ref="request_samir"/>
+        <field name="donation_id" ref="donation_tony_school"/>
+        <field name="amount">800.0</field>
+        <field name="date">2025-07-01</field>
+    </record>
+    <record id="distribution_3" model="charity.distribution">
+        <field name="project_id" ref="project_food_relief"/>
+        <field name="request_id" ref="request_fatima"/>
+        <field name="donation_id" ref="donation_ahmad_food"/>
+        <field name="amount">300.0</field>
+        <field name="date">2025-06-15</field>
+    </record>
+</odoo>

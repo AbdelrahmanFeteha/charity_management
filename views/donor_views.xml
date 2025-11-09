@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="view_charity_donor_list" model="ir.ui.view">
+    <field name="name">charity.donor.list</field>
+    <field name="model">charity.donor</field>
+    <field name="arch" type="xml">
+      <list string="Donors">
+        <field name="name"/>
+        <field name="is_company"/>
+        <field name="organization"/>
+        <field name="hide_name"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_charity_donor_form" model="ir.ui.view">
+    <field name="name">charity.donor.form</field>
+    <field name="model">charity.donor</field>
+    <field name="arch" type="xml">
+      <form string="Donor">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="is_company"/>
+              <!-- New-style conditional invisibility -->
+              <field name="organization" invisible="not is_company"/>
+              <field name="hide_name"/>
+            </group>
+            <group>
+              <field name="donation_ids" readonly="1">
+                <list>
+                  <field name="amount"/>
+                  <field name="date"/>
+                  <field name="status"/>
+                  <field name="project_id"/>
+                </list>
+              </field>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_charity_donor" model="ir.actions.act_window">
+    <field name="name">Donors</field>
+    <field name="res_model">charity.donor</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+</odoo>
